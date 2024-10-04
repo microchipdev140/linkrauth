@@ -5,7 +5,6 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 // Step 1: Redirect to Spotify for authorization
 app.get('/auth/spotify', (req, res) => {
@@ -47,10 +46,5 @@ app.get('/', (req, res) => {
     res.send('Welcome to the Spotify Auth Server! Go to <a href="/auth/spotify">/auth/spotify</a> to start the authorization process.');
 });
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
-
-// Export for Vercel serverless functions
+// Export the app as a Vercel serverless function
 module.exports = app;
