@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const axios = require('axios');
 const dotenv = require('dotenv');
@@ -52,3 +51,6 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+// Export for Vercel serverless functions
+module.exports = app;
